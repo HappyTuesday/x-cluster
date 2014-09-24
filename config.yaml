@@ -1,0 +1,35 @@
+nodes:
+  - name:         dns01
+    ip:           200
+    type:         dns
+  - name:         master01
+    ip:           201
+    type:         master
+  - name:         web01
+    ip:           202
+    type:         web
+  - name:         as01
+    ip:           203
+  - name:         es01
+    ip:           204
+  - name:         ms01
+    ip:           205
+  - name:         db01
+    ip:           206
+  - name:         amq01
+    ip:           207
+  - name:         red01
+    ip:           208
+  - name:         mobile01
+    ip:           209
+
+domain:           x.com
+ipzone:           192.168.1
+account:
+  name:           x
+  password:       abc123_
+  
+outerdns:         10.0.2.3
+
+memory:           256
+box_name:         centos-6.5.box
