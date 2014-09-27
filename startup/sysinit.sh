@@ -43,7 +43,7 @@ yum clean all
 yum makecache
 
 echo install common tools
-yum install -y vim man
+yum install -y vim man tree
 
 echo common configurations
 cp -f /vagrant/startup/resources/vimrc /home/$username/.vimrc
