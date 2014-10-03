@@ -34,6 +34,7 @@ cd /home/$username
 chown $username .ssh
 cp -f /vagrant/ssh/authorized_keys .ssh
 cp -f /vagrant/ssh/id_rsa .ssh
+chmod 400 .ssh/id_rsa.ssh
 
 echo update yum repository
 cd /vagrant/startup
