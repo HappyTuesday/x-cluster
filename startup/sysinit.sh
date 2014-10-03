@@ -46,10 +46,11 @@ echo install common tools
 yum install -y vim man tree
 
 echo common configurations
-cp -f /vagrant/startup/resources/vimrc /home/$username/.vimrc
+cp -f /vagrant/startup/resources/.vimrc /home/$username/.vimrc
 cd /home/$username
 [ ! -d .vim ] || mkdir -p .vim
-cp -f /vagrant/startup/resources/.vim/colors
+cp -f /vagrant/startup/resources/colors .vim
+cp -f /vagrant/startup/resources/plugin .vim
 
 echo update iptables
 iptables -F
