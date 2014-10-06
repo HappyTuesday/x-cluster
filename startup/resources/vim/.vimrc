@@ -32,17 +32,6 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP 
 syntax enable
 
-"ctags
-
-"taglist
-let Tlist_Ctags_Cmd='/usr/bin/ctags'
-let Tlist_Show_One_File=0
-let Tlist_File_Fold_Auto_Close=1
-let Tlist_Exit_OnlyWindow=1
-let Tlist_Use_SingleClick=1
-let Tlist_GainFocus_On_ToggleOpen=1
-let Tlist_Process_File_Always=1
-
 "auto compile and run
 func! RunPython()
     exec "!python %"
@@ -63,4 +52,5 @@ func! OpenTempWindow()
     endif
 endfunc
 
-nmap <F9> :call OpenTempWindow()<CR>
+call pathogen#infect()
+map <F4> :NERDTree<CR>
