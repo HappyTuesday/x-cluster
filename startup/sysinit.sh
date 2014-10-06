@@ -28,13 +28,12 @@ echo add user $username to sudoers
 sudoer="$username  ALL=(ALL) ALL"
 cat /etc/sudoers | grep -q "$sudoer" || echo "$sudoer" >> /etc/sudoers
 
-echo copy rsa public key and private key
-cd /home/$username
-[ -d .ssh ] || mkdir .ssh
-chown $username .ssh
-cp -f /vagrant/ssh/authorized_keys .ssh
-cp -f /vagrant/ssh/id_rsa .ssh
-chmod 400 .ssh/id_rsa.ssh
+echo copy startup/copy/userhome folder files to /home/$username
+cd /vagrant/startup/copy/userhome
+for f in `ls -A`;do
+    cp -rf $f /home/$username
+    chown $username /home/username/$f
+done
 
 echo update yum repository
 cd /vagrant/startup
@@ -45,10 +44,6 @@ yum makecache
 
 echo install common tools
 yum install -y vim man tree
-
-echo common configurations
-cd /home/$username
-cp -rf /vagrant/startup/resources/vim/* .
 
 echo update iptables
 iptables -F
